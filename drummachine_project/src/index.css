@@ -1,0 +1,47 @@
+body {
+  margin: 0;
+  padding: 0;
+  font-family: sans-serif;
+}
+
+/* <----- Drum Machine Styling -----> */
+
+#drum-machine {
+  background-color: #ffb942;
+}
+#display {
+  height: 25vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 70px;
+}
+
+#drum-pads {
+  height: 75vh;
+  width: 100vw;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.drum-pad {
+  border: 1px solid black;
+  height: 20vh;
+  width: 20vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-right: 1vw;
+  background-color: #84eeff;
+}
+
+.trig {
+  border: 1px solid black;
+  height: 10vh;
+  width: 10vh;
+  align-items: center
+
+}
+
+/* <----- Drum Machine Styling -----> */
