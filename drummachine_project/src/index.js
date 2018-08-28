@@ -9,7 +9,7 @@ import registerServiceWorker from './registerServiceWorker';
 
 
 
-// Drum Data
+//  <----- Drum Data - this stores our drum data. -----> //
 const data = [
   {id: 'closed hat', letter: 'q', src: 'https://s3.us-east-2.amazonaws.com/drumsamples/DRH_CHat_01.wav'},
   {id: 'clap', letter: 'w', src: 'https://s3.us-east-2.amazonaws.com/drumsamples/DRH_Clap_01.wav'},
@@ -23,26 +23,15 @@ const data = [
   {id: 'tom 03', letter: 'p', src: 'https://s3.us-east-2.amazonaws.com/drumsamples/DRH_Tom_03.wav'}
 ];
 
+// <----- DrumPad handles the audio with a handleClick event -----> //
 
 class DrumPad extends React.Component {
 
   componentDidMount() {
-    console.log(this.audio)
-    document.addEventListener('keydown', this.handleKeydown)
+    // console.log(this.audio)
     window.focus()
   }
 
- componentWillUnmount() {
-   document.removeEventListener('keydown', this.handleKeydown)
- }
-
-  handleKeydown = e => {
-    if(e.keyCode === this.props.letter.charCodeAt()) {
-      this.audio.play()
-      this.audio.currentTime = 0
-      this.props.handleDisplay(this.props.id)
-    }
-  }
 
   handleClick = () => {
     this.audio.play()
@@ -54,26 +43,29 @@ class DrumPad extends React.Component {
     return (
       <div
           class='drum-pad'
-          id={this.props.id}
+          // id={this.props.id}
       >
-        <div class="trig">
-          <button onClick={this.handleClick}>Trig</button><br/>
-        </div>
+
+        <button className="trig" onClick={this.handleClick}>Trig</button>
+
         <audio id={this.props.letter}
                class='clip'
                src={this.props.src}
                ref={ref => this.audio = ref}
-          ></audio>
+        ></audio>
+
       </div>
     )
   }
 }
 
+// <----- App handles the drum data, and loading the sounds. -----> //
+
 class App extends React.Component {
   constructor(props){
     super(props)
     this.state = {
-      display: 'Click or Press a Key'
+      display: 'Click a pad'
     }
   }
 
@@ -87,7 +79,7 @@ class App extends React.Component {
           <DrumPad
             key={d.id}
             id={d.id}
-            letter={d.letter}
+            // letter={d.letter}
             src={d.src}
             handleDisplay={this.handleDisplay}
           />
@@ -97,5 +89,22 @@ class App extends React.Component {
   }
 }
 
-ReactDOM.render(<App/>,document.getElementById("root"))
+
+// <----- Sequencer -----> //
+
+const index = 0;
+
+function sequencer(time) {
+  let step = index % 16;
+  for(let i = 0; i < sequencer.length; i ++);
+}
+
+
+
+
+ReactDOM.render(
+  <div className="DOM">
+    <App/>
+  </div>,
+  document.getElementById("root"))
   registerServiceWorker();

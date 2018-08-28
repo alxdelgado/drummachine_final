@@ -8,8 +8,10 @@ body {
 
 #drum-machine {
   background-color: #ffb942;
+  border: 1px solid black;
 }
-#display {
+
+ #display {
   height: 25vh;
   display: flex;
   justify-content: center;
@@ -17,7 +19,7 @@ body {
   font-size: 70px;
 }
 
-#drum-pads {
+ #drum-pads {
   height: 75vh;
   width: 100vw;
   display: flex;
@@ -25,7 +27,7 @@ body {
   align-items: center;
 }
 
-.drum-pad {
+ .drum-pad {
   border: 1px solid black;
   height: 20vh;
   width: 20vh;
@@ -40,8 +42,32 @@ body {
   border: 1px solid black;
   height: 10vh;
   width: 10vh;
-  align-items: center
-
+  align-items: center;
 }
+
+
+.play-btn {
+  display: flex;
+  border: 1px solid black;
+  height: 10vh;
+  width: 10vh;
+}
+
+/* #sequencer-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.sequencer-pads {
+  border: 1px solid black;
+  height: 20vh;
+  width: 20vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-right: 1vw;
+  background-color: #84eeff;
+} */
 
 /* <----- Drum Machine Styling -----> */
