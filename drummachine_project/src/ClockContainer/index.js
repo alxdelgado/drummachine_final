@@ -8,6 +8,7 @@ class ClockContainer extends Component {
     }
   }
 
+  // <----- Mounting the clockStart state ----- > //
   componentDidMount() {
     console.log(this.props.clockStart);
     const start = this.state.clockStart;
@@ -27,7 +28,7 @@ class ClockContainer extends Component {
 
             <div className="clock-divblock">
 
-  
+
 
             </div>
 

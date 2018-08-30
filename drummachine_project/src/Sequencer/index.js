@@ -24,10 +24,9 @@ class Sequencer extends Component {
     };
   }
 
-  // <----- This handles when a user clicks the "play" button. ----->
+  // <----- This is the handleClick function for the "play" button. ----->
   handleClick = () => {
-    this.play();
-    // this.state.play();
+    this.audio.play();
 
   };
 
@@ -35,7 +34,7 @@ class Sequencer extends Component {
     this.setState({audio: audio})
   }
 
-  // <----- trigSelect is the logic for our "sequencer steps". It handles when an "step" has been selected. ----->
+  // <----- trigSelect is another handleClick function. It handles when an "step" has been selected. ----->
   trigSelect = (e) => {
     e.preventDefault
     // console.log(e.currentTarget.id)
@@ -54,26 +53,28 @@ class Sequencer extends Component {
 
   // <----- this is the function that runs the sequencer. -----> //
   play () {
-    console.log('I am in play method');
+    // console.log('I am play method');
     this.interval = setInterval(() => {
+      console.log("interval")
         this.setState({
-          step: this.state.localSteps < this.state.localSteps - 1 ?
-            this.state.localSteps + 1 : 0
+          step: this.state.step < this.state.steps.length - 1 ? this.state.step + 1 : 0
         });
-    }, 1000);
+    }, 428);
+
   }
 
   // <----- Our "render" method. Renders all JSX elements to the page. -----> //
   render() {
-    // console.log(this.props.drums)
+    console.log(this.state.step, "this is this.state.step")
+    console.log();
 
-    const allSounds = data.map((drum) => {
-      return (
-        <DrumPad
-          src={drum.id}
-        />
-      )
-    });
+    // const allSounds = data.map((drum) => {
+    //   return (
+    //     <DrumPad
+    //       src={drum.id}
+    //     />
+    //   )
+    // });
 
     const sequencer = this.state.steps.map((step, i) => {
 
@@ -88,7 +89,7 @@ class Sequencer extends Component {
           <h1>TR-9000</h1>
         </header>
 
-        <SelectInstrument src={this.props.drums[0].src} fetchAudio={this.fetchAudio}/>
+          { this.state.steps[this.state.step]  ? <SelectInstrument src={this.props.drums[0].src} fetchAudio={this.fetchAudio}/> : null }
 
 
 
@@ -121,4 +122,5 @@ class Sequencer extends Component {
 
 };
 
+// <----- exporting our react "Sequencer" component. -----> //
 export default Sequencer;
