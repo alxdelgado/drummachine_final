@@ -4,6 +4,10 @@ import {Route, Switch} from 'react-router-dom';
 import logo from './logo.svg';
 import './App.css';
 import data from './drumData';
+import Sequencer from './Sequencer';
+import trigData from './Sequencer';
+import SelectInstrument from './SelectInstrument'
+
 
 
 class App extends React.Component {
@@ -17,18 +21,28 @@ class App extends React.Component {
   handleDisplay = display => this.setState({ display })
 
   render(){
+
+    const pads = data.map(d => {
+      return(
+        <DrumPad
+          key={d.id}
+          id={d.id}
+          // letter={d.letter}
+          src={d.src}
+          handleDisplay={this.handleDisplay}
+        />
+      )
+    });
+
+
     return(
     <div id='drum-machine'>
         <div id='display'>{this.state.display}</div>
-        <div id='drum-pads'>{data.map(d => (
-          <DrumPad
-            key={d.id}
-            id={d.id}
-            // letter={d.letter}
-            src={d.src}
-            handleDisplay={this.handleDisplay}
-          />
-         ))}</div>
+        <div id='sequencer-component'>
+          <Sequencer drums={data} />
+          
+        </div>
+        <div id='drum-pads'>{pads}</div>
     </div>
     )
   }

@@ -32,3 +32,6 @@ class DrumPad extends React.Component {
   }
 }
 export default DrumPad;
+
+
+// Write a way for all the sounds to play. //

@@ -8,8 +8,6 @@ import registerServiceWorker from './registerServiceWorker';
 // import {Component} from 'react';
 
 
-
-
 ReactDOM.render(
   <div className="DOM">
     <App />

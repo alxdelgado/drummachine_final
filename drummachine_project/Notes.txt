@@ -1,0 +1,4 @@
+Steps for completing the drum machine project.
+
+  1. Get one of the sequencer rows to produce a sound when the 'play' button is clicked.
+  

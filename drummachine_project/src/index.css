@@ -53,13 +53,12 @@ body {
   width: 10vh;
 }
 
-/* #sequencer-container {
-  display: flex;
-  justify-content: center;
-  align-items: center;
+#sequencer-container {
+  border: 1px solid black;
+
 }
 
-.sequencer-pads {
+.buttons {
   border: 1px solid black;
   height: 20vh;
   width: 20vh;
@@ -68,6 +67,13 @@ body {
   align-items: center;
   margin-right: 1vw;
   background-color: #84eeff;
-} */
+}
 
+#sequencer-sound-block {
+  border: 1px solid black;
+}
+
+.sequencer-sound {
+  border: 1px solid black;
+}
 /* <----- Drum Machine Styling -----> */
