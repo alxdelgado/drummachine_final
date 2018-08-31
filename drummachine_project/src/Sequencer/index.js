@@ -111,6 +111,7 @@ class Sequencer extends Component {
 
 
         <div class="buttons">
+
           <button
             class={this.state.playing ? 'active' : ''}
             onClick={() => {
