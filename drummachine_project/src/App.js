@@ -40,7 +40,7 @@ class App extends React.Component {
         <div id='display'>{this.state.display}</div>
         <div id='sequencer-component'>
           <Sequencer drums={data} />
-          
+
         </div>
         <div id='drum-pads'>{pads}</div>
     </div>

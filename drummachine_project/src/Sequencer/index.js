@@ -21,7 +21,8 @@ class Sequencer extends Component {
               false],
       playing: false,
       audio: {},
-    };
+      interval: '',
+    }
   }
 
   // <----- This is the handleClick function for the "play" button. ----->
@@ -52,21 +53,31 @@ class Sequencer extends Component {
   }
 
   // <----- this is the function that runs the sequencer. -----> //
-  play () {
-    // console.log('I am play method');
-    this.interval = setInterval(() => {
-      console.log("interval")
-        this.setState({
-          step: this.state.step < this.state.steps.length - 1 ? this.state.step + 1 : 0
-        });
-    }, 428);
 
+  play = () => {
+    // console.log('I am play method');
+    const playInterval = setInterval(() => {
+      // console.log("interval")
+        this.setState({
+          step: this.state.step < this.state.steps.length - 1 ? this.state.step + 1 : 0,
+          interval: playInterval
+        });
+    }, 1000);
   }
+
+  stop = () => {
+    // console.log(this.state.interval);
+    clearInterval(this.state.interval) // this kills the setInterval.
+    this.setState({interval: ''}) // setting back normal.
+  }
+
+
+
 
   // <----- Our "render" method. Renders all JSX elements to the page. -----> //
   render() {
     console.log(this.state.step, "this is this.state.step")
-    console.log();
+    console.log(this.interval, 'interval');
 
     // const allSounds = data.map((drum) => {
     //   return (
@@ -89,7 +100,7 @@ class Sequencer extends Component {
           <h1>TR-9000</h1>
         </header>
 
-          { this.state.steps[this.state.step]  ? <SelectInstrument src={this.props.drums[0].src} fetchAudio={this.fetchAudio}/> : null }
+          { this.state.steps[this.state.step]  ? <SelectInstrument src={this.props.drums[3].src} fetchAudio={this.fetchAudio}/> : null }
 
 
 
@@ -111,6 +122,12 @@ class Sequencer extends Component {
               }
             }}>
               Play
+            </button>
+
+            <button
+              class={this.state.playing ? 'active' : ''}
+              onClick={this.stop}>
+              Stop
             </button>
 
         </div>
